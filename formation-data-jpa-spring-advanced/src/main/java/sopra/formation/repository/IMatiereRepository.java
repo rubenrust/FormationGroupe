@@ -7,10 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import sopra.formation.model.Filiere;
+import sopra.formation.model.Formateur;
 import sopra.formation.model.Matiere;
 import sopra.formation.model.MatiereId;
 
 public interface IMatiereRepository extends JpaRepository<Matiere, MatiereId> {
 	@Query("select distinct m.matiere from Module m join m.filiere f where f = :filiere")
 	List<Matiere> findAllByFiliere(@Param("filiere") Filiere filiere);
+	
+//	@Query("select distinct m from Matiere m join m.Formateur mf where f = :formateur")
+//	List<Matiere> findAllByFormateur(@Param("formateur") Formateur formateur);
 }
+
