@@ -11,6 +11,10 @@ import javax.persistence.IdClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "classroom")
@@ -18,13 +22,17 @@ import javax.persistence.Version;
 public class Salle {
 	@Id
 	@Column(name = "name")
+	@NotEmpty
 	private String nom;
 	@Id
 	@Column(name = "capacity")
+	@Min(1)
+	@Max(20)
 	private Integer capacite;
 	@Version
 	private int version;
 	@Embedded
+	@Valid
 	private Adresse adresse;
 	@OneToMany(mappedBy = "salle")
 	private List<Module> modules = new ArrayList<Module>();
@@ -47,7 +55,7 @@ public class Salle {
 		this.nom = nom;
 	}
 
-	public int getCapacite() {
+	public Integer getCapacite() {
 		return capacite;
 	}
 	
