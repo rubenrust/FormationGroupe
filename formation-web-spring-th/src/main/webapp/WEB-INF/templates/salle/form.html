@@ -22,14 +22,14 @@
 					<div class="form-group">
 						<label for="nom">Nom:</label> <input
 							type="text" class="form-control" id="nom"
-							name="nom" th:value="${salle.nom}" th:readonly="${salle.nom!=null}">
+							name="nom" th:value="${salle.nom}" th:readonly="${!fromAdd}">
 						<span class="text-danger"
 							th:errors="${salle.nom}"></span>
 					</div>
 					<div class="form-group">
 						<label for="capacite">Capacité:</label> <input
 							type="number" class="form-control" id="capacite"
-							name="capacite" th:value="${salle.capacite}" th:readonly="${salle.capacite!=null}">
+							name="capacite" th:value="${salle.capacite}" th:readonly="${!fromAdd}">
 						<span class="text-danger"
 							th:errors="${salle.capacite}"></span>
 					</div>

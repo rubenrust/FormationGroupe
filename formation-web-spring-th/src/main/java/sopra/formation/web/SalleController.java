@@ -45,7 +45,7 @@ public class SalleController {
 	@GetMapping("/add")
 	public String add(Model model) {
 		model.addAttribute("salle", new Salle());
-		
+		model.addAttribute("fromAdd", true);
 		return "salle/form";
 	}
 
@@ -53,7 +53,7 @@ public class SalleController {
 	public String edit(@RequestParam("nom") String nom,@RequestParam("capacite") Integer capacite, Model model) {
 		SalleId idSalle = new SalleId(nom, capacite);
 		model.addAttribute("salle", salleRepo.findById(idSalle).get());
-	
+		model.addAttribute("fromAdd", false);
 		return "salle/form";
 	}
 
