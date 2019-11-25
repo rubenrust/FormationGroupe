@@ -16,6 +16,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "training", uniqueConstraints = { @UniqueConstraint(columnNames = { "title", "startdate" }) })
@@ -26,22 +31,29 @@ public class Filiere {
 	@Version
 	private int version;
 	@Column(name = "title")
+	@NotEmpty(message = "{filiere.notnull}")
 	private String intitule;
 	@Column(name = "prom")
+	@NotEmpty(message = "{filiere.notnull}")
 	private String promotion;
 	@Column(name = "startdate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past(message = "{filiere.past}")
 	private Date dtDebut;
 	@Column(name = "duration")
+	@NotNull(message = "Obligatoire")
 	private Integer duree;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "device")
+	@NotNull(message = "{filiere.notnull}")
 	private Dispositif dispositif;
 	@OneToMany(mappedBy = "filiere")
 	private List<Module> modules = new ArrayList<Module>();
-	@OneToMany(mappedBy = "filiere" )
+	@OneToMany(mappedBy = "filiere")
 	private List<Stagiaire> stagiaires = new ArrayList<Stagiaire>();
 	@ManyToOne
 	@JoinColumn(name = "referent_id")
+//	@NotNull (message="Obligatoire")
 	private Formateur referent;
 
 	public Filiere() {
@@ -61,7 +73,7 @@ public class Filiere {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public int getVersion() {
 		return version;
 	}
