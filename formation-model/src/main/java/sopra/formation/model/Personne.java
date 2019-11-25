@@ -29,17 +29,17 @@ public abstract class Personne {
 	@Version
 	private int version;
 	@Column(name = "lastname")
-	@NotEmpty(message="Nom obligatoire")
+	@NotEmpty(message = "{stagiaire.notnull}")
 	private String nom;
-	@NotEmpty(message="Prénom obligatoire")
+	@NotEmpty(message = "{stagiaire.notnull}")
 	@Column(name = "firstname")
 	private String prenom;
 	@Column(unique = true)
-	@NotEmpty(message="Courriel obligatoire")
-	@Email(message="Courriel mal formé")
+	@NotEmpty(message = "{stagiaire.notnull}")
+	@Email (message = "{stagiaire.email}")
 	private String email;
 	@Column(name = "phonenumber")
-	@Pattern(regexp = "^[0-9]{10}$", message = "Numéro sur 10 chiffres")
+	@Pattern(regexp = "^[0-9]{10}$", message = "{stagiaire.notnull}")
 	private String telephone;
 	@Embedded
 	@AttributeOverrides({ @AttributeOverride(name = "rue", column = @Column(name = "p_street")),
