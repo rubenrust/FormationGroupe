@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="formation-web-spring-th-1.0-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="formation-data-jpa-spring-advanced-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/formation-data-jpa-spring-advanced/formation-data-jpa-spring-advanced">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="formation-model-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/formation-model/formation-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="formation-web-spring-th"/>
+        <property name="java-output-path" value="/formation-web-spring-th/target/classes"/>
+    </wb-module>
+</project-modules>
