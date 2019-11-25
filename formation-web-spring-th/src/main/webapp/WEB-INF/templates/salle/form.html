@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>Edition de la salle</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
+<body>
+	<section layout:fragment="custom-content">
+		<form th:action="@{/salle/save}" method="post">
+			<input type="hidden" name="version" th:value="${salle.version}">
+			<div id="filiereForm" class="card mt-3">
+				<div class="card-header bg-info text-white">
+					<h3>Edition de la salle</h3>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="nom">Nom:</label> <input
+							type="text" class="form-control" id="nom"
+							name="nom" th:value="${salle.nom}" th:readonly="${fromAdd==false}">
+						<span class="text-danger"
+							th:errors="${salle.nom}"></span>
+					</div>
+					<div class="form-group">
+						<label for="capacite">Capacité:</label> <input
+							type="number" class="form-control" id="capacite"
+							name="capacite" th:value="${salle.capacite}" th:readonly="${fromAdd==false}">
+						<span class="text-danger"
+							th:errors="${salle.capacite}"></span>
+					</div>
+					
+					<div class="form-group">
+						<label for="rue">Rue:</label> <input
+							type="text" class="form-control" id="rue"
+							name="adresse.rue" th:value="${salle.adresse?.rue}">
+						<span class="text-danger"
+							th:errors="${salle.adresse.rue}"></span>
+					</div>
+					<div class="form-group">
+						<label for="complement">Complément:</label> <input
+							type="text" class="form-control" id="complement"
+							name="adresse.complement" th:value="${salle.adresse?.complement}">
+						<span class="text-danger"
+							th:errors="${salle.adresse.complement}"></span>
+					</div>
+					<div class="form-group">
+						<label for="codePostal">Code postal:</label> <input
+							type="text" class="form-control" id="codePostal"
+							name="adresse.codePostal" th:value="${salle.adresse?.codePostal}">
+						<span class="text-danger"
+							th:errors="${salle.adresse.codePostal}"></span>
+					</div>
+					<div class="form-group">
+						<label for="ville">Ville:</label> <input
+							type="text" class="form-control" id="ville"
+							name="adresse.ville" th:value="${salle.adresse?.ville}">
+						<span class="text-danger"
+							th:errors="${salle.adresse.ville}"></span>
+					</div>
+					
+				</div>
+				<div class="card-footer">
+					<div class="btn-group btn-group-lg float-right">
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i>
+						</button>
+						<a th:href="@{/salle/cancel}" class="btn btn-warning"> <i
+							class="fa fa-undo"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</form>
+
+	</section>
+</body>
+</html>

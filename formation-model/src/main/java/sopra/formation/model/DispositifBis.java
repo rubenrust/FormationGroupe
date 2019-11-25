@@ -2,7 +2,7 @@ package sopra.formation.model;
 
 public class DispositifBis {
 	public static final DispositifBis CPRO = new DispositifBis("Contrat de professionnalisation");
-	public static final DispositifBis POEI = new DispositifBis("Pr�paration Op�rationnelle � l'Emploi Individuelle");
+	public static final DispositifBis POEI = new DispositifBis("Préparation Opérationnelle à l'Emploi Individuelle");
 
 	private final String label;
 

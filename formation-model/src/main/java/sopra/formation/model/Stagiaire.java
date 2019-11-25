@@ -24,7 +24,7 @@ public class Stagiaire extends Personne {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birthdate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Past(message = "date invalide")
+	@Past(message = "{stagiaire.past}")
 	private Date dtNaissance;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "studylevel")
@@ -34,7 +34,7 @@ public class Stagiaire extends Personne {
 	private Filiere filiere;
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "rating_id")
-//	@NotNull(message = "Obligatoire")
+	@NotNull(message = "{stagiaire.notnull}")
 	private Evaluation evaluation;
 
 	public Stagiaire() {

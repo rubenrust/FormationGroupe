@@ -4,29 +4,29 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>Liste des stagiaires</title>
+<title>[[#{stagiaire.list.title}]]</title>
 </head>
 <body>
 
 	<section layout:fragment="custom-content">
 		<div class="card mt-3">
 			<div class="card-header bg-info text-white">
-				<h2>Liste des stagiaires</h2>
+				<h2>[[#{stagiaire.list.titleBis}]]</h2>
 			</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Nom</th>
-							<th>Prénom</th>
-							<th>Courriel</th>
-							<th>Téléphone</th>
-							<th>Date de naissance</th>
-							<th>Niveau d'étude</th>
-							<th>Rue</th>
-							<th>Complément</th>
-							<th>Code postal</th>
-							<th>Ville</th>
+							<th>[[#{stagiaire.list.nom}]]</th>
+							<th>[[#{stagiaire.list.prenom}]]</th>
+							<th>[[#{stagiaire.list.email}]]</th>
+							<th>[[#{stagiaire.list.telephone}]]</th>
+							<th>[[#{stagiaire.list.dtNaissance}]]</th>
+							<th>[[#{stagiaire.list.niveauEtude}]]</th>
+							<th>[[#{stagiaire.list.rue}]]</th>
+							<th>[[#{stagiaire.list.complement}]]</th>
+							<th>[[#{stagiaire.list.codePostal}]]</th>
+							<th>[[#{stagiaire.list.ville}]]</th>
 							<th></th>
 						</tr>
 					</thead>
