@@ -45,6 +45,7 @@ public class MatiereController {
 		model.addAttribute("niveauMatieres", NiveauMatiere.values());
 		model.addAttribute("matiere", new Matiere());
 		
+		
 		Boolean readdable = true;
 		
 		model.addAttribute("readdable", readdable);
@@ -62,6 +63,7 @@ public class MatiereController {
 		model.addAttribute("readdable", readdable);
 		model.addAttribute("matiere", matiereRepo.findById(matiereId).get());
 		model.addAttribute("niveauMatieres", NiveauMatiere.values());
+		
 		
 		return "matiere/form";
 	}
