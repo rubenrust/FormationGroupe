@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>[[#{filiere.form.title}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
+<body>
+
+	<section layout:fragment="custom-content">
+		<form th:action="@{/filiere/save}" method="post">
+			<input type="hidden" name="id" th:value="${filiere.id}"> <input
+				type="hidden" name="version" th:value="${filiere.version}">
+			<div id="filiereForm" class="card mt-3">
+				<div class="card-header bg-info text-white">
+					<h3>[[#{filiere.form.titleBis}]]</h3>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="intitule">[[#{filiere.form.intitule}]]</label> <input type="text"
+							class="form-control" id="intitule" name="intitule"
+							th:value="${filiere.intitule}"> <span class="text-danger"
+							th:errors="${filiere.intitule}"></span>
+					</div>
+					<div class="form-group">
+						<label for="promotion">[[#{filiere.form.promotion}]]</label> <input type="text"
+							class="form-control" id="promotion" name="promotion"
+							th:value="${filiere.promotion}"> <span
+							class="text-danger" th:errors="${filiere.promotion}"></span>
+					</div>
+					<div class="form-group">
+						<label for="dtDebut">[[#{filiere.form.dtDebut}]]</label><input type="date"
+							class="form-control" id="dtDebut" name="dtDebut"
+							th:value="${filiere.dtDebut}"> <span class="text-danger"
+							th:errors="${filiere.dtDebut}"></span>
+					</div>
+					<div class="form-group">
+						<label for="duree">[[#{filiere.form.duree}]]</label> <input type="text"
+							class="form-control" id="duree" name="duree"
+							th:value="${filiere.duree}"> <span class="text-danger"
+							th:errors="${filiere.duree}"></span>
+					</div>
+					<div class="form-group">
+						<label for="dispositif">[[#{filiere.form.dispositif}]]</label> <select
+							class="form-control" id="dispositif" name="dispositif">
+							<option value="">Choisir un dispositif</option>
+							<option th:each="dis : ${dispositif}" th:value="${dis}"
+								th:selected="${filiere.dispositif == dis}">[[${dis.label}]]</option>
+						</select> <span class="text-danger" th:errors="${filiere.dispositif}"></span>
+					</div>
+					<div class="form-group">
+						<label for="referent">[[#{filiere.form.referent}]]</label> <select
+							class="form-control" id="referent" name="referent.id">
+							<option value="">Choisir un référent</option>
+							<option th:each="ref : ${referents}" th:value="${ref.id}"
+								th:selected="${filiere.referent.id == ref.id}">[[${ref.id}]]</option>
+						</select> <span class="text-danger" th:errors="${filiere.referent.id}"></span>
+					</div>
+				</div>
+				<div class="card-footer">
+					<div class="btn-group btn-group-lg float-right">
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i>
+						</button>
+						<a th:href="@{/filiere/cancel}" class="btn btn-warning"> <i
+							class="fa fa-undo"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</form>
+
+	</section>
+</body>
+</html>

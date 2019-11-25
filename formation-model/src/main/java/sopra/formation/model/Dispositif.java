@@ -1,7 +1,7 @@
 package sopra.formation.model;
 
 public enum Dispositif {
-	CPRO("Contrat de professionnalisation"), POEI("Pr�paration Op�rationnelle � l'Emploi Individuelle");
+	CPRO("Contrat de professionnalisation"), POEI("Préparation Opérationnelle à l'Emploi Individuelle");
 
 	private Dispositif(String label) {
 		this.label = label;
