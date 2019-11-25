@@ -53,6 +53,7 @@ public class SalleController {
 	public String edit(@RequestParam("nom") String nom,@RequestParam("capacite") Integer capacite, Model model) {
 		SalleId idSalle = new SalleId(nom, capacite);
 		model.addAttribute("salle", salleRepo.findById(idSalle).get());
+	
 		return "salle/form";
 	}
 
