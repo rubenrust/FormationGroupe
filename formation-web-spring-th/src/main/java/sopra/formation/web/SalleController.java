@@ -45,7 +45,6 @@ public class SalleController {
 	@GetMapping("/add")
 	public String add(Model model) {
 		model.addAttribute("salle", new Salle());
-		model.addAttribute("fromAdd", true);
 		return "salle/form";
 	}
 
