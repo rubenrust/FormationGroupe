@@ -7,15 +7,15 @@ import javax.validation.constraints.NotEmpty;
 @Embeddable
 public class Adresse {
 	@Column(name = "street")
-	@NotEmpty(message="Rue obligatoire")
+	@NotEmpty(message="{form.error.rue}")
 	private String rue;
 	@Column(name = "complement")
 	private String complement;
 	@Column(name = "zipcode")
-	@NotEmpty(message="code postal obligatoire")
+	@NotEmpty(message="{form.error.codePostal}")
 	private String codePostal;
 	@Column(name = "city")
-	@NotEmpty(message="Ville obligatoire")
+	@NotEmpty(message="{form.error.ville}")
 	private String ville;
 
 	public Adresse() {
