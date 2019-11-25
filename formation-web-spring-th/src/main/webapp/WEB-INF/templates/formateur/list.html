@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>Liste des Formateurs</title>
+</head>
+<body>
+
+	<section layout:fragment="custom-content">
+		<div class="card mt-3">
+			<div class="card-header bg-info text-white">
+				<h2>Liste des Fomateurs</h2>
+			</div>
+			<div class="card-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Courriel</th>
+							<th>Téléphone</th>
+							<th>Rue</th>
+							<th>Complément</th>
+							<th>Code postal</th>
+							<th>Ville</th>
+							<th>Experience</th>
+					
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="formateur : ${formateurs}">
+							<td>[[${formateur.nom}]]</td>
+							<td>[[${formateur.prenom}]]</td>
+							<td>[[${formateur.email}]]</td>
+							<td>[[${formateur.telephone}]]</td>
+							<td>[[${formateur.adresse?.rue}]]</td>
+							<td>[[${formateur.adresse?.complement}]]</td>
+							<td>[[${formateur.adresse?.codePostal}]]</td>
+							<td>[[${formateur.adresse?.ville}]]</td>
+							<td>[[${formateur.experience}]]</td>
+							<td><div class="btn-group btn-group-sm">
+									<a class="btn btn-primary"
+										th:href="@{/formateur/edit(id=${formateur.id})}"><i
+										class="fa fa-edit"></i></a><a class="btn btn-danger"
+										th:href="@{/formateur/delete(id=${formateur.id})}"><i
+										class="fa fa-trash"></i></a>
+								</div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="card-footer">
+				<a th:href="@{/formateur/add}" class="btn btn-success btn-lg">
+					<i class="fa fa-plus"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

@@ -9,11 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @DiscriminatorValue("trainer")
 public class Formateur extends Personne {
-	private int experience;
+	@NotNull(message= "Expérience obligatoire")
+	@Min(value=0, message ="Entrez une valeur >=0" )
+	private Integer experience;
 	@OneToMany(mappedBy = "referent")
 	private List<Filiere> filieres = new ArrayList<Filiere>();
 	@OneToMany(mappedBy = "formateur")

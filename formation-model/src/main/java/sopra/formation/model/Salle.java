@@ -22,12 +22,12 @@ import javax.validation.constraints.NotEmpty;
 public class Salle {
 	@Id
 	@Column(name = "name")
-	@NotEmpty
+	@NotEmpty(message="{salle.form.error.nom}")
 	private String nom;
 	@Id
 	@Column(name = "capacity")
-	@Min(1)
-	@Max(20)
+	@Min(value=1, message="{salle.form.error.capaciteMin}")
+	@Max(value=20, message="{salle.form.error.capaciteMax}")
 	private Integer capacite;
 	@Version
 	private int version;
