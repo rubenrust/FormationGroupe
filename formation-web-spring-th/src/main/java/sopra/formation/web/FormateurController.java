@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sopra.formation.model.Formateur;
+import sopra.formation.repository.IMatiereRepository;
 import sopra.formation.repository.IPersonneRepository;
 
 @Controller
@@ -25,7 +26,8 @@ public class FormateurController {
 	@Autowired
 	private IPersonneRepository personneRepo;
 	
-
+	@Autowired
+	private IMatiereRepository matiereRepo;
 
 	public FormateurController() {
 		super();
@@ -44,7 +46,7 @@ public class FormateurController {
 	public String add(Model model) {
 		
 		model.addAttribute("formateur", new Formateur());
-//		model.addAttribute("matieres", matiereRepo.findAllByFormateur(null));
+		model.addAttribute("matieres", matiereRepo.findAll());
 		return "formateur/form";
 		
 	}
@@ -52,7 +54,7 @@ public class FormateurController {
 	@GetMapping("/edit")
 	public String edit(@RequestParam("id") Long id, Model model) {
 		model.addAttribute("formateur", personneRepo.findById(id).get());
-	//	model.addAttribute("niveauEtudes", NiveauEtude.values());
+		model.addAttribute("matieres", matiereRepo.findAll());
 
 
 		return "formateur/form";

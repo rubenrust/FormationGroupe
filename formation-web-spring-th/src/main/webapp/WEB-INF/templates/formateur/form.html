@@ -73,6 +73,14 @@
 							th:value="${formateur.experience}"> <span
 							class="text-danger" th:errors="${formateur.experience}"></span>
 					</div>
+					<div>
+						<ul>
+							<li th:each="mat : ${matieres}" style="list-style: none;">
+								<input type="checkbox"  name="matiere.id" id="matiere" th:value="${mat.id}">
+								<label for="matiere" >[[${mat.id.nom}]] - [[${mat.id.niveau}]]</label>
+							</li>
+						</ul>	
+					</div>
 
 				</div>
 				<div class="card-footer">
