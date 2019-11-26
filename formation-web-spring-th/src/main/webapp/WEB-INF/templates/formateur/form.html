@@ -4,7 +4,7 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>Edition du formateur</title>
+<title>[[#{formateur.form.title}]]</title>
 </head>
 <body>
 
@@ -14,61 +14,61 @@
 				type="hidden" name="version" th:value="${formateur.version}">
 			<div id="filiereForm" class="card mt-3">
 				<div class="card-header bg-info text-white">
-					<h3>Edition du formateur</h3>
+					<h3>[[#{formateur.form.titleBis}]]</h3>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label for="nom">Nom:</label> <input type="text"
+						<label for="nom">[[#{formateur.form.nom}]]</label> <input type="text"
 							class="form-control" id="nom" name="nom"
 							th:value="${formateur.nom}"> <span class="text-danger"
 							th:errors="${formateur.nom}"></span>
 					</div>
 					<div class="form-group">
-						<label for="prenom">Prénom:</label> <input type="text"
+						<label for="prenom">[[#{formateur.form.prenom}]]</label> <input type="text"
 							class="form-control" id="prenom" name="prenom"
 							th:value="${formateur.prenom}"> <span class="text-danger"
 							th:errors="${formateur.prenom}"></span>
 					</div>
 					<div class="form-group">
-						<label for="email">Courriel:</label> <input type="text"
+						<label for="email">[[#{formateur.form.email}]]</label> <input type="text"
 							class="form-control" id="email" name="email"
 							th:value="${formateur.email}"> <span class="text-danger"
 							th:errors="${formateur.email}"></span>
 					</div>
 					<div class="form-group">
-						<label for="telephone">Téléphone:</label> <input type="text"
+						<label for="telephone">[[#{formateur.form.telephone}]]</label> <input type="text"
 							class="form-control" id="telephone" name="telephone"
 							th:value="${formateur.telephone}"> <span
 							class="text-danger" th:errors="${formateur.telephone}"></span>
 					</div>
 
 					<div class="form-group">
-						<label for="rue">Rue:</label> <input type="text"
+						<label for="rue">[[#{formateur.form.rue}]]</label> <input type="text"
 							class="form-control" id="rue" name="adresse.rue"
 							th:value="${formateur.adresse?.rue}"> <span
 							class="text-danger" th:errors="${formateur.adresse.rue}"></span>
 					</div>
 					<div class="form-group">
-						<label for="complement">Complément:</label> <input type="text"
+						<label for="complement">[[#{formateur.form.complement}]]</label> <input type="text"
 							class="form-control" id="complement" name="adresse.complement"
 							th:value="${formateur.adresse?.complement}"> <span
 							class="text-danger" th:errors="${formateur.adresse.complement}"></span>
 					</div>
 					<div class="form-group">
-						<label for="codePostal">Code postal:</label> <input type="text"
+						<label for="codePostal">[[#{formateur.form.codePostal}]]</label> <input type="text"
 							class="form-control" id="codePostal" name="adresse.codePostal"
 							th:value="${formateur.adresse?.codePostal}"> <span
 							class="text-danger" th:errors="${formateur.adresse.codePostal}"></span>
 					</div>
 					<div class="form-group">
-						<label for="ville">Ville:</label> <input type="text"
+						<label for="ville">[[#{formateur.form.ville}]]</label> <input type="text"
 							class="form-control" id="ville" name="adresse.ville"
 							th:value="${formateur.adresse?.ville}"> <span
 							class="text-danger" th:errors="${formateur.adresse.ville}"></span>
 					</div>
 
 					<div class="form-group">
-						<label for="experience">Experience :</label> <input type="number"
+						<label for="experience">[[#{formateur.form.experience}]]</label> <input type="number"
 							class="form-control" id="experience" name="experience"
 							th:value="${formateur.experience}"> <span
 							class="text-danger" th:errors="${formateur.experience}"></span>

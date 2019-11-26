@@ -4,25 +4,25 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>Liste des salles</title>
+<title>[[#{salle.list.title}]]</title>
 </head>
 <body>
 
 	<section layout:fragment="custom-content">
 		<div class="card mt-3">
 			<div class="card-header bg-info text-white">
-				<h2>Liste des salles</h2>
+				<h2>[[#{salle.list.titleBis}]]</h2>
 			</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Nom</th>
-							<th>Capacité</th>
-							<th>Rue</th>
-							<th>Complément</th>
-							<th>Code postal</th>
-							<th>Ville</th>
+							<th>[[#{salle.list.nom}]]</th>
+							<th>[[#{salle.list.capacite}]]</th>
+							<th>[[#{salle.list.rue}]]</th>
+							<th>[[#{salle.list.complement}]]</th>
+							<th>[[#{salle.list.codePostal}]]</th>
+							<th>[[#{salle.list.ville}]]</th>
 							<th></th>
 						</tr>
 					</thead>

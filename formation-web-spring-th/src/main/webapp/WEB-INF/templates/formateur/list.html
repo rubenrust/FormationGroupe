@@ -4,28 +4,28 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>Liste des Formateurs</title>
+<title>[[#{formateur.list.title}]]</title>
 </head>
 <body>
 
 	<section layout:fragment="custom-content">
 		<div class="card mt-3">
 			<div class="card-header bg-info text-white">
-				<h2>Liste des Fomateurs</h2>
+				<h2>[[#{formateur.list.titleBis}]]</h2>
 			</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Nom</th>
-							<th>Prénom</th>
-							<th>Courriel</th>
-							<th>Téléphone</th>
-							<th>Rue</th>
-							<th>Complément</th>
-							<th>Code postal</th>
-							<th>Ville</th>
-							<th>Experience</th>
+							<th>[[#{formateur.list.nom}]]</th>
+							<th>[[#{formateur.list.prenom}]]</th>
+							<th>[[#{formateur.list.email}]]</th>
+							<th>[[#{formateur.list.telephone}]]</th>
+							<th>[[#{formateur.list.rue}]]</th>
+							<th>[[#{formateur.list.complement}]]</th>
+							<th>[[#{formateur.list.codePostal}]]</th>
+							<th>[[#{formateur.list.ville}]]</th>
+							<th>[[#{formateur.list.experience}]]</th>
 					
 						</tr>
 					</thead>
