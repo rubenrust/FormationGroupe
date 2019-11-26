@@ -4,7 +4,7 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>matiere.form.title</title>
+<title>[[#{matiere.form.title}]]</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -17,59 +17,50 @@
 			<input type="hidden" name="version" th:value="${matiere.version}">
 			<div id="matiereForm" class="card mt-3">
 				<div class="card-header bg-info text-white">
-					<h3>matiere.form.titleBis</h3>
+					<h3>[[#{matiere.form.titleBis}]]</h3>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label for="nom">matiere.form.nom</label> <input
+						<label for="nom">[[#{matiere.form.nom}]]</label> <input
 							type="text" class="form-control" id="nom"
 							name="id.nom" th:value="${matiere.id?.nom}" th:readonly="${readdable == false}">
 							<span class="text-danger"
 							th:errors="${matiere.id.nom}"></span>
 					</div>
 					<div class="form-group">
-						<label for="niveau">matiere.form.niveau</label> 
+						<label for="niveau">[[#{matiere.form.niveau}]]</label> 
 						
 						<select  class="form-control" id="niveau"
 							name="id.niveau" th:readonly="${readdable == false}">
-							<option value="">matiere.form.niveauEnum</option>
+							<option value="">[[#{matiere.form.niveauEnum}]]</option>
 							<option th:each="niv : ${niveauMatieres}" th:value="${niv}" th:selected="${matiere.id?.niveau == niv}" th:readonly="${readdable == false}">[[${niv}]]</option>
 						</select>
 						<span class="text-danger"
 							th:errors="${matiere.id.niveau}"></span>
 					</div>
 					<div class="form-group">
-						<label for="duree">matiere.form.duree</label> <input
+						<label for="duree">[[#{matiere.form.duree}]]</label> <input
 							type="text" class="form-control" id="duree"
 							name="duree" th:value="${matiere.duree}">
 							<span class="text-danger"
 							th:errors="${matiere.duree}"></span>
 					</div>
 					<div class="form-group">
-						<label for="preRequis">matiere.form.prerequis</label> <input
+						<label for="preRequis">[[#{matiere.form.prerequis}]]</label> <input
 							type="text" class="form-control" id="preRequis"
 							name="preRequis" th:value="${matiere.preRequis}">
 					</div>
 					<div class="form-group">
-						<label for="objectifs">matiere.form.objectifs</label> <input
+						<label for="objectifs">[[#{matiere.form.objectifs}]]</label> <input
 							type="text" class="form-control" id="objectifs"
 							name="objectifs" th:value="${matiere.objectifs}">
 					</div>
 					<div class="form-group">
-						<label for="programme">matiere.form.programme</label> <input
+						<label for="programme">[[#{matiere.form.programme}]]</label> <input
 							type="text" class="form-control" id="programme"
 							name="programme" th:value="${matiere.programme}">
 							<span class="text-danger"
 							th:errors="${matiere.programme}"></span>
-					</div>
-					<div class="form-group">
-						<label for="formateur">matiere.form.formateur</label> 
-						
-						<select  class="form-control" id="formateur"
-							name="formateur.id">
-							<option value="">matiere.form.formateurChoix</option>
-								<option th:each="forma : ${formateurs}" th:value="${forma.id}">[[${forma.id}]]</option>
-						</select>
 					</div>
 				</div>
 				<div class="card-footer">

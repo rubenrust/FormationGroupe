@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -16,18 +17,19 @@ import javax.validation.constraints.NotNull;
 @Table(name = "subject")
 public class Matiere {
 	@EmbeddedId
+	@Valid
 	private MatiereId id;
 	@Version
 	private int version;
 	@Column(name = "duration")
-	@NotNull(message = "obligatoire")
+	@NotNull(message = "{duree.notnull}")
 	private Integer duree;
 	@Column(name = "requirement")
 	private String preRequis;
 	@Column(name = "objectives")
 	private String objectifs;
 	@Column(name = "program")
-	@NotEmpty(message = "obligatoire")
+	@NotEmpty(message = "{programme.notempty}")
 	private String programme;
 	@ManyToMany(mappedBy = "competences")
 	private List<Formateur> formateurs = new ArrayList<Formateur>();

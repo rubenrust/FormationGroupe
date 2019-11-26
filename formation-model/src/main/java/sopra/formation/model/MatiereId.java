@@ -13,11 +13,11 @@ import javax.validation.constraints.NotNull;
 @Embeddable
 public class MatiereId implements Serializable {
 	@Column(name = "name")
-	@NotEmpty(message = "obligatoire")
+	@NotEmpty(message = "{nom.notempty}")
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "level")
-	@NotNull(message = "obligatoire")
+	@NotNull(message = "{niveau.notnull}")
 	private NiveauMatiere niveau;
 
 	public MatiereId() {
