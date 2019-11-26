@@ -8,31 +8,43 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "module")
 public class Module {
 	@Id
+	@NotNull(message="code obligatoire")
 	private Integer code;
 	@Version
 	private int version;
 	@Column(name = "duration")
+	@NotNull(message="duree obligatoire")
+	@Min(value=1, message="duree <1j")
+	@Max(value=10, message="duree >10j")
 	private Integer duree;
 	@Column(name = "position")
+	@NotNull(message="position obligatoire")
 	private Integer ordre;
 	@ManyToOne
 	@JoinColumn(name = "training_id")
+	@NotNull(message="filiere obligatoire")
 	private Filiere filiere;
 	@ManyToOne
 	@JoinColumn(name = "trainer_id")
+	@NotNull(message="formateur obligatoire")
 	private Formateur formateur;
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "subject_name", referencedColumnName = "name"),
 			@JoinColumn(name = "subject_level", referencedColumnName = "level") })
+	@NotNull(message="matiere obligatoire")
 	private Matiere matiere;
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "classroom_name", referencedColumnName = "name"),
 			@JoinColumn(name = "classroom_capacity", referencedColumnName = "capacity") })
+	@NotNull(message="salle obligatoire")
 	private Salle salle;
 
 	public Module() {
