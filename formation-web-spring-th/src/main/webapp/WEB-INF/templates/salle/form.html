@@ -4,7 +4,7 @@
 	layout:decorator="layout.html">
 <head>
 <meta charset="UTF-8">
-<title>Edition de la salle</title>
+<title>[[#{salle.list.title}]]</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -16,18 +16,18 @@
 			<input type="hidden" name="version" th:value="${salle.version}">
 			<div id="filiereForm" class="card mt-3">
 				<div class="card-header bg-info text-white">
-					<h3>Edition de la salle</h3>
+					<h3>[[#{salle.list.titleBis}]]</h3>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label for="nom">Nom:</label> <input
+						<label for="nom">[[#{salle.list.nom}]]</label> <input
 							type="text" class="form-control" id="nom"
 							name="nom" th:value="${salle.nom}" th:readonly="${fromAdd==false}">
 						<span class="text-danger"
 							th:errors="${salle.nom}"></span>
 					</div>
 					<div class="form-group">
-						<label for="capacite">Capacité:</label> <input
+						<label for="capacite">[[#{salle.list.capacite}]]</label> <input
 							type="number" class="form-control" id="capacite"
 							name="capacite" th:value="${salle.capacite}" th:readonly="${fromAdd==false}">
 						<span class="text-danger"
@@ -35,28 +35,28 @@
 					</div>
 					
 					<div class="form-group">
-						<label for="rue">Rue:</label> <input
+						<label for="rue">[[#{salle.list.rue}]]</label> <input
 							type="text" class="form-control" id="rue"
 							name="adresse.rue" th:value="${salle.adresse?.rue}">
 						<span class="text-danger"
 							th:errors="${salle.adresse.rue}"></span>
 					</div>
 					<div class="form-group">
-						<label for="complement">Complément:</label> <input
+						<label for="complement">[[#{salle.list.complement}]]</label> <input
 							type="text" class="form-control" id="complement"
 							name="adresse.complement" th:value="${salle.adresse?.complement}">
 						<span class="text-danger"
 							th:errors="${salle.adresse.complement}"></span>
 					</div>
 					<div class="form-group">
-						<label for="codePostal">Code postal:</label> <input
+						<label for="codePostal">[[#{salle.list.codePostal}]]</label> <input
 							type="text" class="form-control" id="codePostal"
 							name="adresse.codePostal" th:value="${salle.adresse?.codePostal}">
 						<span class="text-danger"
 							th:errors="${salle.adresse.codePostal}"></span>
 					</div>
 					<div class="form-group">
-						<label for="ville">Ville:</label> <input
+						<label for="ville">[[#{salle.list.ville}]]</label> <input
 							type="text" class="form-control" id="ville"
 							name="adresse.ville" th:value="${salle.adresse?.ville}">
 						<span class="text-danger"
