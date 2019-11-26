@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title>[[#{module.form.title}]]</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
+<body>
+
+	<section layout:fragment="custom-content">
+		<form th:action="@{/matiere/save}" method="post">
+			<input type="hidden" name="version" th:value="${matiere.version}">
+			<div id="matiereForm" class="card mt-3">
+				<div class="card-header bg-info text-white">
+					<h3>[[#{module.form.titleBis}]]</h3>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="code">[[#{module.form.code}]]</label> <input
+							type="text" class="form-control" id="code" name="code"
+							th:value="${module.code}" th:readonly="${readdable == false}">
+						<span class="text-danger" th:errors="${module.code}"></span>
+					</div>
+					<div class="form-group">
+						<label for="duree">[[#{module.form.duree}]]</label> <input
+							type="text" class="form-control" id="duree" name="duree"
+							th:value="${module.duree}"> <span class="text-danger"
+							th:errors="${module.duree}"></span>
+					</div>
+					<div class="form-group">
+						<label for="ordre">[[#{module.form.ordre}]]</label> <input
+							type="text" class="form-control" id="ordre" name="ordre"
+							th:value="${module.ordre}">
+					</div>
+					<div class="form-group">
+						<label for="matiere">[[#{module.form.matiere}]]</label> <select
+							class="form-control" id="matiere" name="matiere.id">
+							<option value="">Choisir une matiere</option>
+							<option th:each="matiere : ${matieres}" th:value="${matiere.id}">[[${matiere.id}]]-[[${matiere.level}]]</option>
+						</select> <span class="text-danger" th:errors="${module.matiere.id}"></span>
+					</div>
+					<div class="form-group">
+						<label for="formateur">[[#{module.form.formateur}]]</label> <select
+							class="form-control" id="formateur" name="formateur.id">
+							<option value="">Choisir un formateur</option>
+							<option th:each="formateur : ${formateurs}"
+								th:value="${formateur.id}">[[${formateur.id}]]-[[${formateur.nom}]]</option>
+						</select> <span class="text-danger" th:errors="${module.formateur.id}"></span>
+					</div>
+					<div class="form-group">
+						<label for="filiere">[[#{module.form.filiere}]]</label> <select
+							class="form-control" id="filiere" name="filiere.id">
+							<option value="">Choisir une filiere</option>
+							<option th:each="filiere : ${filieres}" th:value="${filiere.id}">[[${filiere.id}]]-[[${filiere.intitule}]]</option>
+						</select> <span class="text-danger" th:errors="${module.filiere.id}"></span>
+					</div>
+					<div class="form-group">
+						<label for="salle">[[#{module.form.salle}]]</label> <select
+							class="form-control" id="salle" name="salle.id">
+							<option value="">Choisir une salle</option>
+							<option th:each="salle : ${salles}" th:value="${salle.id}">[[${salle.id}]]-[[${salle.nom}]]</option>
+						</select> <span class="text-danger" th:errors="${module.salle.id}"></span>
+					</div>
+				</div>
+				<div class="card-footer">
+					<div class="btn-group btn-group-lg float-right">
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i>
+						</button>
+						<a th:href="@{/module/cancel}" class="btn btn-warning"> <i
+							class="fa fa-undo"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</form>
+
+	</section>
+</body>
+</html>
