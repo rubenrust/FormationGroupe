@@ -53,7 +53,7 @@ public class FiliereController {
 //		Pour initialiser le formulaire avec des données par défaut (ex : version = 0)
 		model.addAttribute("filiere", new Filiere());
 		model.addAttribute("dispositif", Dispositif.values());
-//		model.addAttribute("referent", personneRepo.findAllFormateur());
+		model.addAttribute("referents", personneRepo.findAllFormateur());
 
 		return "filiere/form";
 	}
@@ -62,7 +62,7 @@ public class FiliereController {
 	public String edit(@RequestParam("id") Long id, Model model) {
 		model.addAttribute("filiere", filiereRepo.findById(id).get());
 		model.addAttribute("dispositif", Dispositif.values());
-//		model.addAttribute("referent", personneRepo.findAllFormateur());
+		model.addAttribute("referents", personneRepo.findAllFormateur());
 
 		return "filiere/form";
 	}
@@ -74,6 +74,7 @@ public class FiliereController {
 		if (result.hasErrors()) {
 
 			model.addAttribute("dispositif", Dispositif.values());
+			model.addAttribute("referents", personneRepo.findAllFormateur());
 
 			return "filiere/form";
 		}

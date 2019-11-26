@@ -63,6 +63,7 @@ public class FormateurController {
 		
 		if (result.hasErrors()) {
 			
+			
 			return "formateur/form";
 		}
 		

@@ -41,11 +41,11 @@ public class Formateur extends Personne {
 		this.experience = experience;
 	}
 
-	public int getExperience() {
+	public Integer getExperience() {
 		return experience;
 	}
 
-	public void setExperience(int experience) {
+	public void setExperience(Integer experience) {
 		this.experience = experience;
 	}
 
